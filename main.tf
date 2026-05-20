@@ -131,3 +131,4 @@ module "s3-bucket-cq" {
   version = "1.1.0"
   # insert required variables here
   bucket_name = "cq-unique-bucket-2026-05-20"
+}
