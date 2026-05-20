@@ -1,10 +1,12 @@
 terraform {
-  # cloud {
-  #   organization = "policy-as-code-training"
-  #   workspaces {
-  #     name = "tf-vault-qa-cq"
-  #   }
-  # }
+  /*
+  cloud {
+    organization = "policy-as-code-training"
+    workspaces {
+      name = "tf-vault-qa-ranjeev-walia-05202026"
+    }
+  */
+  }
   required_providers {
     aws = {
       source = "hashicorp/aws"
@@ -51,7 +53,7 @@ module "app_security_group" {
 
   tags = {
     project     = "project-alpha",
-    environment = "development"
+    environment = "dev"
   }
 }
 
@@ -67,7 +69,7 @@ module "lb_security_group" {
 
   tags = {
     project     = "project-alpha",
-    environment = "development"
+    environment = "dev"
   }
 }
 
@@ -108,20 +110,20 @@ module "elb_http" {
 
   tags = {
     project     = "project-alpha",
-    environment = "development"
+    environment = "dev"
   }
 }
 
 module "ec2_instances" {
   source = "./modules/aws-instance"
 
-  instance_count = var.instance_count
-  instance_type  = var.instance_type
+  instance_count     = var.instance_count
+  instance_type      = var.instance_type
   subnet_ids         = module.vpc.private_subnets[*]
   security_group_ids = [module.app_security_group.this_security_group_id]
 
   tags = {
     project     = "project-alpha",
-    environment = "development"
+    environment = "dev"
   }
 }
