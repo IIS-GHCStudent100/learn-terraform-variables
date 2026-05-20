@@ -130,5 +130,5 @@ module "s3-bucket-cq" {
   source  = "app.terraform.io/policy-as-code-training/s3-bucket-cq/aws"
   version = "1.1.0"
   # insert required variables here
-  bucket_name = "cq-2026-05-20"
+  bucket_name = "cq-2026-05-209348gjgj"
 }
